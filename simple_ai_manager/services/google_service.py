@@ -24,18 +24,21 @@ class GoogleService:
         
         try:
             response = model.generate_content(prompt)
-            return self.process_response(response)
+            return response.text
         except Exception as e:
             raise Exception(f"Error in generating text: {str(e)}")
-    
-    def process_response(self, response):
-        if response.text:
-            return {
-                'choices': [{
-                    'message': {
-                        'content': response.text
-                    }
-                }]
-            }
-        else:
-            raise Exception('No valid content found in response')
+
+    def continue_conversation(self, model_name, prompt, history):
+        model = genai.GenerativeModel(
+            model_name=model_name,
+            generation_config=self.generation_config
+        )
+        
+        full_prompt = "\n".join([f"{'Human' if msg['role'] == 'user' else 'AI'}: {msg['content']}" for msg in history])
+        full_prompt += f"\nHuman: {prompt}\nAI:"
+        
+        try:
+            response = model.generate_content(full_prompt)
+            return response.text
+        except Exception as e:
+            raise Exception(f"Error in continuing conversation: {str(e)}")
