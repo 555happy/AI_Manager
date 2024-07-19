@@ -47,7 +47,7 @@ AI Managerを使用して、各社のAIサービスを呼び出す基本的な�
 ```python
 from dotenv import load_dotenv
 import os
-from ai_manager import AIManager
+from simple_ai_manager import AIManager
 
 # 環境変数の読み込み
 load_dotenv()
@@ -138,7 +138,7 @@ except Exception as e:
 
 ## 貢献
 
-バグの報告や機能のリクエストは[GitHub Issues](https://github.com/sugosho/AI_Manager/issues)で受け付けています。プルリクエストも歓迎します。
+バグの報告や機能のリクエストは[GitHub Issues](https://github.com/555happy/AI_Manager/issues)で受け付けています。プルリクエストも歓迎します。
 
 ## ライセンス
 
