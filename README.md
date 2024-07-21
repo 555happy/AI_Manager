@@ -4,7 +4,7 @@ AI Managerは、複数のAIサービス（OpenAI, Google, Anthropicなど）を�
 
 ## 特徴
 
-- 複数のAIサービスに対応（OpenAI, Google, Anthropic）
+- 複数のAIサービスに対応（OpenAI, Google, Anthropic, Groq）
 - APIキーの管理が容易
 - 柔軟なAPI選択とプロンプト処理
 - 環境変数による設定管理
@@ -27,6 +27,7 @@ pip install simple-ai-manager
 OPENAI_API_KEY=your_openai_api_key
 GOOGLE_API_KEY=your_google_api_key
 ANTHROPIC_API_KEY=your_anthropic_api_key
+GROQ_API_KEY=your_groq_api_key
 ```
 
 トークン数の制限をかけたい場合は、以下のように環境変数にMAX_TOKENSを書いて設定してください。
@@ -36,9 +37,10 @@ MAX_TOKENS=10000
 ```
 設定しない場合は、デフォルト値が使われます。
 デフォルト値は以下の通りです。
-openai/1000
-google/8192
-anthropic/1000
+- openai/1000
+- google/8192
+- anthropic/1000
+- groq/1000
 
 ## 使い方
 
@@ -71,7 +73,7 @@ except Exception as e:
 ```
 
 レスポンスはテキストだけに限定させています。
-テキストを渡してテキストで貰うときに特化した簡略化ツールです。
+テキストを渡してテキストで貰うことに特化した簡略化ツールです。
 
 ### 会話の継続性管理
 
